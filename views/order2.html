@@ -1,0 +1,14 @@
+<include href="views/header.html">
+<body>
+<h1>Food Order</h1>
+<form method="post" action="order3">
+    <p>Which meal?</p>
+    <repeat group="{{ @meals }}" value="{{ @currMeal }}">
+        <input id="{{ @currMeal }}" value="{{ @currMeal }}" type="radio" name="meal">
+        <label for="{{ @currMeal }}">{{ ucfirst(@currMeal) }}</label>
+    </repeat>
+
+    <input type="submit" value="Next >>">
+</form>
+</body>
+</html>

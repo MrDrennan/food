@@ -5,6 +5,8 @@
  * @link /328/chicken/index.php
  */
 
+session_start();
+
 ini_set("display_errors", 1);
 error_reporting(E_ALL);
 
@@ -66,6 +68,30 @@ $f3->route('GET /@item', function($f3, $params) {
 $f3->route('GET /order', function() {
     $view = new Template();
     echo $view->render('views/order.html');
+});
+
+$f3->route('POST /order2', function($f3) {
+    //var_dump($_POST);
+    $f3->set('meals', ['breakfast', 'lunch', 'dinner']);
+    $_SESSION['food'] = $_POST['food'];
+    $view = new Template();
+    echo $view->render('views/order2.html');
+});
+
+$f3->route('POST /order3', function($f3) {
+    //var_dump($_POST);
+    $_SESSION['meal'] = $_POST['meal'];
+
+    $f3->set('condiments', array('mayonnaise', 'mustard', 'ketchup'));
+    $view = new Template();
+    echo $view->render('views/order3.html');
+});
+
+$f3->route('POST /summary', function() {
+    $_SESSION['drink'] = $_POST['drink'];
+    $_SESSION['conds'] = implode(', ', $_POST['conds']);
+    $view = new Template();
+    echo $view->render('views/summary.html');
 });
 
 // Run F3

@@ -1,0 +1,22 @@
+<include href="views/header.html">
+    <body>
+    <h1>Food Order</h1>
+    <form method="post" action="summary">
+        <label for="drink">Select a drink size</label>
+        <select id="drink" name="drink" id="drink">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select>
+
+        <p>Select Condiments</p>
+        <repeat group="{{ @condiments }}" value="{{ @currCondiment }}">
+            <input id="{{ @currCondiment }}" type="checkbox" name="conds[]" value="{{ @currCondiment }}">
+            <label for="{{ @currCondiment }}">{{ ucfirst(@currCondiment) }}</label>
+        </repeat>
+
+
+        <button>Next >></button>
+    </form>
+    </body>
+    </html>

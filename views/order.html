@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Order</title>
-</head>
+<include href="views/header.html">
 <body>
 <h1>Food Order</h1>
-<label for="order">What would you like to order?</label>
-<input type="text">
-<button>Next >></button>
+<form method="post" action="order2">
+    <label for="order">What would you like to order?</label>
+    <input id="order" type="text" name="food">
+    <button type="submit">Next >></button>
+</form>
 </body>
 </html>
